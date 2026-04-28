@@ -2,11 +2,21 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <title>Мыть деда</title>
   <link rel="stylesheet" href="/base.css">
   <link rel="stylesheet" href="/scene.css">
   <link rel="stylesheet" href="/animations.css">
+  <script>
+    (function() {
+      var isMobile = /Mobi|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        document.documentElement.style.zoom = '0.67';
+      }
+    })();
+  </script>
 </head>
 <body>
   <div class="startup-loader" id="startup-loader">
