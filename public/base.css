@@ -1,4 +1,5 @@
 :root {
+  --mobile-scale: 1;
   --blue: #36b8ff;
   --cream: #f8ead3;
   --green: #69ce37;
@@ -11,6 +12,12 @@
   --panel: rgba(31, 28, 23, .9);
   --line: rgba(255, 241, 201, .34);
   --shadow: 0 7px 0 #120e0b, 0 12px 0 rgba(255,255,255,.08), 0 18px 28px rgba(0,0,0,.58);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --mobile-scale: 0.67;
+  }
 }
 
 * { box-sizing: border-box; }
@@ -26,44 +33,35 @@ body {
   -webkit-text-size-adjust: none;
   -ms-text-size-adjust: none;
   text-size-adjust: none;
+  touch-action: manipulation;
 }
 
-.game-viewport {
+html {
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+#app {
   position: fixed;
   inset: 0;
   overflow: hidden;
   background: #080706;
-}
-
-body {
-  touch-action: manipulation;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-}
-
-@media (max-width: 768px) {
-  .game-viewport {
-    transform: scale(0.67);
-  }
-}
-
-.phone-frame {
-  position: absolute;
-  inset: 0;
-  width: 100vw;
-  width: 100dvw;
-  height: 100vh;
-  height: 100dvh;
-  overflow: hidden;
-  isolation: isolate;
+  transform: scale(var(--mobile-scale));
+  transform-origin: top left;
+  width: calc(100vw / var(--mobile-scale));
+  height: calc(100vh / var(--mobile-scale));
   background:
     linear-gradient(90deg, rgba(0,0,0,.34), transparent 16%, transparent 84%, rgba(0,0,0,.34)),
     radial-gradient(circle at 52% 38%, rgba(236,203,128,.18), transparent 34%),
     linear-gradient(160deg, #59442d, #2a2219 46%, #100d0a);
-  box-shadow: none;
 }
 
-.phone-frame::before {
+#app.is-hidden {
+  display: none;
+}
+
+#app::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -118,7 +116,7 @@ body {
   text-shadow: 0 3px 0 #000;
 }
 
-.desktop-blocked .game-viewport { display: none; }
+.desktop-blocked #app { display: none; }
 .desktop-blocked .desktop-lock { display: grid; }
 
 .startup-loader,

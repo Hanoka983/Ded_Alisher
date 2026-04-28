@@ -1,7 +1,6 @@
 const app = document.getElementById('app');
 const toast = document.getElementById('toast');
 const startupLoader = document.getElementById('startup-loader');
-const screenTransition = document.getElementById('screen-transition');
 const mobileWidthLimit = 768;
 const mainIconPath = '/image/buttons/main/';
 const washIconPath = '/image/buttons/wash/';

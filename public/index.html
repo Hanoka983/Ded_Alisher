@@ -3,39 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
   <title>Мыть деда</title>
   <link rel="stylesheet" href="/base.css">
   <link rel="stylesheet" href="/scene.css">
   <link rel="stylesheet" href="/animations.css">
-  <script>
-    (function() {
-      var isMobile = /Mobi|Android/i.test(navigator.userAgent);
-      if (isMobile) {
-        document.documentElement.style.zoom = '0.67';
-      }
-    })();
-  </script>
 </head>
 <body>
-  <div class="startup-loader" id="startup-loader">
-    <div class="startup-loader__panel">
-      <strong>МЫТЬ ДЕДА</strong>
-      <p class="startup-loader__caption">ДЕД ПРОВЕРЯЕТ, ДОСТАТОЧНО ЛИ ТЫ СТАРАЕШЬСЯ</p>
-      <div class="startup-loader__bar"><i></i></div>
-    </div>
-  </div>
-  <div class="screen-transition" id="screen-transition"></div>
-  <div class="game-viewport">
-    <main class="phone-frame" id="app" aria-live="polite"></main>
-  </div>
-  <aside class="desktop-lock">
-    <div>
-      <b>ИГРА ТОЛЬКО ДЛЯ ТЕЛЕФОНА</b>
-      <span>Сузь окно сайта или открой игру на мобильном экране.</span>
-    </div>
-  </aside>
+  <div class="startup-loader" id="startup-loader"></div>
+  <div id="app"></div>
   <div class="toast" id="toast"></div>
   <script src="/game.js"></script>
 </body>
