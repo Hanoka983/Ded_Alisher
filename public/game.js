@@ -927,12 +927,12 @@ function deathModal() {
 }
 
 function render() {
-  if (desktopBlocked) {
-    fadeOutMusic();
-    fadeOutAmbient();
-    app.innerHTML = '';
+  if (window.innerWidth > mobileWidthLimit) {
+    document.body.classList.add('desktop-blocked');
     return;
   }
+  document.body.classList.remove('desktop-blocked');
+  
   if (!state.dead && clamp(state.mood) <= 0) {
     state.mood = 0;
     state.dead = true;
@@ -1763,11 +1763,6 @@ function transitionToScreen(screen) {
 
   const currentScene = app.querySelector('.scene');
   if (currentScene) currentScene.classList.add('scene-leave');
-  if (screenTransition) {
-    screenTransition.classList.remove('active');
-    void screenTransition.offsetWidth;
-    screenTransition.classList.add('active');
-  }
 
   setTimeout(() => {
     state.screen = screen;
@@ -1777,7 +1772,6 @@ function transitionToScreen(screen) {
   }, 220);
 
   setTimeout(() => {
-    if (screenTransition) screenTransition.classList.remove('active');
     transitionBusy = false;
   }, 620);
 }

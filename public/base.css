@@ -123,6 +123,7 @@ html {
 .screen-transition {
   position: fixed;
   inset: 0;
+  z-index: 1000;
 }
 
 .startup-loader {
@@ -144,6 +145,7 @@ html {
 
 .startup-loader__panel {
   position: relative;
+  z-index: 1001;
   width: min(100%, 440px);
   min-height: min(78dvh, 740px);
   padding: 34px 22px 28px;
